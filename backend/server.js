@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const productRoutes = require("./routes/productRoutes");
+import departmentRoutes from "./routes/departmentRoutes.js";
 const connectDB = require("./db/connect");
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/products", productRoutes);
+app.use("/api", departmentRoutes);
 
 // Connect to DB and start server
 connectDB().then(() => {
